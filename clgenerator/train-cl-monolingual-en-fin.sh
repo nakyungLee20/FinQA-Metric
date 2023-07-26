@@ -1,0 +1,31 @@
+#!/bin/bash
+
+python3 run_cl2.py \
+    --output_dir output/mwp-cl-monolingual-en-fin2 \
+    --bert_pretrain_path bert-base-uncased \
+    --data_dir dataset \
+    --contra_pair pairs/FinQA-FinQA-sample1.json \
+    --train_file FinQA-FinQA_mbert_token_train.json \
+    --dev_file_1 FinQA_mbert_token_val.json \
+    --test_file_1 FinQA_mbert_token_test.json \
+    --dev_file_2 FinQA_mbert_token_val.json \
+    --test_file_2 FinQA_mbert_token_test.json \
+    --learning_rate 5e-5 \
+    --n_epochs 30 \
+    --n_save_ckpt 3 \
+    --n_val 5 \
+    --batch_size 16 \
+    --embedding_size 128 \
+    --hidden_size 768 \
+    --beam_size 3 \
+    --contra_loss_func margin \
+    --contra_loss_margin 0.15 \
+    --contra_common_tree_pair \
+    --neg_sample 1 \
+    --neg_sample_from_pair_file \
+    --alpha 5 \
+    --alpha_warmup \
+    --warmup_begin 1000 \
+    --warmup_end 6000 \
+    --dropout 0.5 \
+    --seed 39
